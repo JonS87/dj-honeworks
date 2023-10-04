@@ -38,9 +38,9 @@ def hello(request):
 
 
 def create_recipes(request, rec):
-    perc = request.GET.get("servings")
+    perc = int(request.GET.get("servings", 1))
     data1 = DATA[rec]
-    if perc is not None and perc != "1":
+    if perc != 1:
         for item in data1:
             data1[item] = data1[item] * int(perc)
 
